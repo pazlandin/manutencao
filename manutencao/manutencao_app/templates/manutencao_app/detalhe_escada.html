@@ -1,0 +1,61 @@
+{% extends 'manutencao_app/base.html' %}
+{% load static %}
+
+{% block titulo %}Detalhes da Escada{% endblock %}
+
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'manutencao_app/detalhe_escada.css' %}">
+{% endblock %}
+
+{% block conteudo %}
+
+<div class="topo">
+    <h1>🔍 Detalhes da Escada</h1>
+    <p>Informações da manutenção</p>
+</div>
+
+<div class="container-detalhe">
+    <div class="card-detalhe">
+
+        <h2>{{ escada.codigo }}</h2>
+
+        <div class="info">
+            <span>Data</span>
+            <strong>{{ escada.data_envio }}</strong>
+        </div>
+
+        <div class="info">
+            <span>Modelo</span>
+            <strong>{{ escada.get_modelo_display }}</strong>
+        </div>
+
+        <div class="info">
+            <span>Problema</span>
+            <strong>{{ escada.problema }}</strong>
+        </div>
+
+        <div class="info status-linha">
+            <span>Status</span>
+            <span class="status {{ escada.status }}">{{ escada.get_status_display }}</span>
+        </div>
+
+        <div class="botoes">
+            {% if escada.status != 'concluida' %}
+            <a href="{% url 'concluir_escada' escada.id %}">
+                <button class="botao concluir">Concluir manutenção</button>
+            </a>
+            {% endif %}
+
+            <a href="{% url 'deletar_escada' escada.id %}">
+                <button class="botao deletar">Deletar</button>
+            </a>
+
+            <a href="{% url 'lista_escadas' %}">
+                <button class="botao voltar">Voltar</button>
+            </a>
+        </div>
+
+    </div>
+
+    {% endblock %}

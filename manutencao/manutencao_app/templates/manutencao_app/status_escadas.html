@@ -1,0 +1,58 @@
+{% extends 'manutencao_app/base.html' %}
+{% load static %}
+
+{% block titulo %}Status das Escadas{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'manutencao_app/status_escadas.css' %}">
+{% endblock %}
+
+{% block conteudo %}
+
+<div class="topo">
+    <h1>📊 Status das Escadas</h1>
+    <p>Gerencie o status</p>
+</div>
+
+<div class="container-status">
+    <div class="tabela-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>NS</th>
+                    <th>Status</th>
+                    <th>Data</th>
+                    <th>Alterar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for escada in escadas %}
+                <tr>
+                    <td>{{ escada.codigo }}</td>
+                    <td>
+                        <span class="status {{ escada.status }}">{{ escada.get_status_display }}</span>
+                    </td>
+                    <td>
+                        {{escada.data_envio}}
+                    </td>
+                    <td>
+                        <form method="POST" action="{% url 'atualizar_status' escada.id %}">
+                            {% csrf_token %}
+                            <select name="status">
+                                <option value="pendente">Pendente</option>
+                                <option value="manutencao">Manutenção</option>
+                                <option value="concluida">Concluída</option>
+                            </select>
+                            <button type="submit">Salvar</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <a href="{% url 'home' %}" class="voltar">← Voltar</a>
+</div>
+
+{% endblock %}

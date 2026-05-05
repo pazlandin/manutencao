@@ -1,0 +1,321 @@
+/* =============================================
+   LISTA DE ESCADAS — Visual profissional REDFOX
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap');
+
+*, *::before, *::after {
+    margin: 0; padding: 0; box-sizing: border-box;
+}
+
+body {
+    background: #f0f0f0;
+    font-family: 'Barlow', sans-serif;
+    color: #1a1a1a;
+    min-height: 100vh;
+}
+
+/* ── TOPO ── */
+.topo {
+    background: #cc0a0a;
+    background-image: linear-gradient(135deg, #cc0a0a 0%, #e30613 60%, #ff1a1a 100%);
+    padding: 28px 40px 22px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(227,6,19,0.35);
+}
+
+.topo::before {
+    content: '';
+    position: absolute;
+    right: -60px; top: -60px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+}
+
+.topo::after {
+    content: '';
+    position: absolute;
+    right: 80px; bottom: -80px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.07);
+}
+
+.topo h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.topo p {
+    color: rgba(255,255,255,0.82);
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 4px;
+    position: relative;
+}
+
+/* ── CONTAINER ── */
+.container-cards {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 36px 32px;
+}
+
+/* ── BARRA TOPO: botão + voltar ── */
+.barra-acoes {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* ── BOTÃO NOVA ESCADA ── */
+a.botao-nova {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #e30613;
+    color: #fff;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 12px 26px;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(227,6,19,0.4);
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+a.botao-nova:hover {
+    background: #b80010;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(227,6,19,0.5);
+}
+
+/* ── VOLTAR ── */
+a.voltar {
+    font-size: 13px;
+    font-weight: 600;
+    color: #666;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    transition: color 0.2s;
+}
+
+a.voltar:hover { color: #e30613; }
+
+/* ── GRID DE CARDS ── */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 22px;
+}
+
+.cards .card {
+    background: #fff;
+    border-radius: 14px;
+    border: 1px solid #e4e4e4;
+    padding: 26px 22px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.cards .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: #e30613;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+    border-radius: 14px 14px 0 0;
+}
+
+.cards .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    border-color: #e30613;
+}
+
+.cards .card:hover::before {
+    transform: scaleX(1);
+}
+
+.cards .card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cards .card p {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.cards .card p strong {
+    color: #333;
+    font-weight: 600;
+}
+
+/* ── BADGE STATUS ── */
+.status {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    align-self: flex-start;
+}
+
+
+.status.em_manutencao { 
+    background: #cfe2ff; 
+    color: #084298; 
+}
+
+.status.pendente { 
+    background: #fff3cd; 
+    color: #856404; 
+}
+
+.status.concluida { 
+    background: #d1e7dd; 
+    color: #0a3622; 
+}
+
+.filtro {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filtro input,
+.filtro select,
+.filtro button {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* ── BARRA DE FILTRO ── */
+.barra-filtro {
+    background: white;
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    border: 1px solid #eee;
+}
+
+/* FORM */
+.filtro {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* INPUTS */
+.filtro input,
+.filtro select {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s;
+}
+
+/* FOCUS */
+.filtro input:focus,
+.filtro select:focus {
+    border-color: #e30613;
+    box-shadow: 0 0 0 2px rgba(227,6,19,0.15);
+}
+
+/* AÇÕES (botões) */
+.acoes-filtro {
+    display: flex;
+    gap: 10px;
+}
+
+/* BOTÃO FILTRAR */
+.btn-filtrar {
+    background: #e30613;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-filtrar:hover {
+    background: #b80010;
+    transform: translateY(-1px);
+}
+
+/* BOTÃO LIMPAR */
+.btn-limpar {
+    background: #f1f1f1;
+    color: #333;
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.btn-limpar:hover {
+    background: #ddd;
+}
+
+
+/* ── EMPTY STATE ── */
+.cards p {
+    color: #999;
+    font-size: 15px;
+    grid-column: 1/-1;
+    text-align: center;
+    padding: 40px 0;
+}
+
+/* ── RESPONSIVO ── */
+@media (max-width: 768px) {
+    .topo { padding: 20px 20px 16px; }
+    .topo h1 { font-size: 22px; }
+    .container-cards { padding: 24px 16px; }
+    .cards { grid-template-columns: 1fr 1fr; gap: 14px; }
+}
+
+@media (max-width: 480px) {
+    .cards { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REDFOX - MANUTENÇÃO</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=DM+Sans:wght@400;500&display=swap" />
+    <link rel="stylesheet" href="{% static 'manutencao_app/login.css' %}">
+</head>
+
+<body>
+    <div class="page">
+        <div class="card">
+            <div class="logo">
+                <img src="{% static 'manutencao_app/img/redfox_logo.jpeg' %}"  class="logo-img" />
+                <span><h4>  REDFOX MANUTENÇÕES </h4></span>
+            </div>
+            <h2>Bem-vindo!</h2>
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert-error" id="alert-msg">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="field">
+                    <label>Usuário</label>
+                    <input name="username" type="text" placeholder="Digite o usuário" required />
+                </div>
+
+                <div class="field">
+                    <label for="password">Senha</label>
+                    <div class="input-wrapper">
+                        <input id="password" name="password" type="password" placeholder="Digite sua senha" />
+                        <button type="button" id="toggleSenha" class="toggle-btn">
+                            Mostrar
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn">Entrar</button>
+            </form>
+
+            <div class="divider"><span>ou continue com</span></div>
+
+            <p class="footer">Esqueceu a senha?<a href="#"> Fale com o Adminstrador</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const senhaInput = document.getElementById("password");
+            const toggleBtn = document.getElementById("toggleSenha");
+
+            if (senhaInput && toggleBtn) {
+                toggleBtn.addEventListener("click", function () {
+                    if (senhaInput.type === "password") {
+                        senhaInput.type = "text";
+                        toggleBtn.textContent = "Ocultar";
+                    } else {
+                        senhaInput.type = "password";
+                        toggleBtn.textContent = "Mostrar";
+                    }
+                });
+            }
+
+            const alerta = document.getElementById("alert-msg");
+            if (alerta) {
+                setTimeout(() => {
+                    alerta.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+                    alerta.style.opacity = "0";
+                    alerta.style.transform = "translateY(-8px)";
+                    setTimeout(() => alerta.remove(), 600);
+                }, 3000);
+            }
+
+        });
+    </script>
+</body>
+
+</html>

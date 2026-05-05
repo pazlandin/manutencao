@@ -1,0 +1,229 @@
+/* =============================================
+   DETALHE DA ESCADA — Visual REDFOX
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap');
+
+/* BASE */
+body {
+    background: #f0f0f0;
+    font-family: 'Barlow', sans-serif;
+    color: #1a1a1a;
+}
+
+/* ── TOPO ── */
+.topo {
+    background: linear-gradient(135deg, #cc0a0a 0%, #e30613 60%, #ff1a1a 100%);
+    padding: 28px 40px 22px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(227,6,19,0.35);
+}
+
+.topo::before {
+    content: '';
+    position: absolute;
+    right: -60px; top: -60px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+}
+
+.topo::after {
+    content: '';
+    position: absolute;
+    right: 80px; bottom: -80px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.07);
+}
+
+.topo h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.topo p {
+    color: rgba(255,255,255,0.85);
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+/* ── CONTAINER ── */
+.container-detalhe {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* ── CARD ── */
+.card-detalhe {
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #e4e4e4;
+    padding: 32px 28px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-detalhe h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+/* TEXTOS */
+.card-detalhe p {
+    font-size: 14px;
+    color: #555;
+}
+
+.card-detalhe p strong {
+    color: #222;
+}
+
+/* ── STATUS ── */
+.status {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.status.em_manutencao { 
+    background: #cfe2ff; 
+    color: #084298; 
+}
+
+.status.pendente { 
+    background: #fff3cd; 
+    color: #856404; 
+}
+
+.status.concluida { 
+    background: #d1e7dd; 
+    color: #0a3622; 
+}
+
+/* ── BOTÕES ── */
+.botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.botao {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* botão principal */
+.botao.concluir {
+    background: #e30613;
+    color: white;
+    box-shadow: 0 4px 14px rgba(227,6,19,0.4);
+}
+
+.botao.concluir:hover {
+    background: #b80010;
+    transform: translateY(-2px);
+}
+
+/* botão secundário */
+.botao.voltar {
+    background: #e5e5e5;
+    color: #333;
+}
+
+.botao.voltar:hover {
+    background: #d6d6d6;
+}
+
+/* ── RESPONSIVO ── */
+@media (max-width: 600px) {
+    .topo {
+        padding: 20px;
+    }
+
+    .topo h1 {
+        font-size: 22px;
+    }
+
+    .container-detalhe {
+        margin: 24px auto;
+    }
+}
+
+/* ── LINHAS DE INFORMAÇÃO ── */
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.info span {
+    font-size: 13px;
+    color: #777;
+    font-weight: 500;
+}
+
+.info strong {
+    font-size: 14px;
+    color: #1a1a1a;
+}
+
+/* linha de status */
+.status-linha {
+    border-bottom: none;
+    margin-top: 10px;
+}
+
+/* melhora espaçamento do card */
+.card-detalhe {
+    gap: 0; /* remove gap antigo */
+}
+
+/* título mais forte */
+.card-detalhe h2 {
+    margin-bottom: 20px;
+}
+
+.card-detalhe::before {
+    content: '';
+    display: block;
+    height: 4px;
+    background: #e30613;
+    border-radius: 16px 16px 0 0;
+    margin: -32px -28px 20px;
+}
+
+.botao.deletar {
+    background: #dc3545;
+    color: white;
+}
+
+.botao.deletar:hover {
+    background: #a71d2a;
+}

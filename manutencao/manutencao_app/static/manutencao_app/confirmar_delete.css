@@ -1,0 +1,132 @@
+/* =============================================
+   CONFIRMAR DELETE — REDFOX STYLE
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap');
+
+/* BASE */
+body {
+    background: #f0f0f0;
+    font-family: 'Barlow', sans-serif;
+    color: #1a1a1a;
+}
+
+/* CONTAINER */
+.container-detalhe {
+    max-width: 520px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+/* CARD */
+.card-detalhe {
+    background: #fff;
+    border-radius: 16px;
+    padding: 36px 30px;
+    border: 1px solid #e4e4e4;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* BARRA SUPERIOR VERMELHA */
+.card-detalhe::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(135deg, #cc0a0a, #ff1a1a);
+}
+
+/* TÍTULO */
+.card-detalhe h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: #cc0a0a;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* TEXTO */
+.card-detalhe p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* CÓDIGO DESTACADO */
+.card-detalhe strong {
+    display: block;
+    font-size: 18px;
+    margin: 12px 0 20px;
+    color: #1a1a1a;
+}
+
+/* BOTÕES */
+.card-detalhe form,
+.card-detalhe a {
+    width: 100%;
+}
+
+/* GRUPO DE BOTÕES */
+.botoes-delete {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+/* BOTÃO BASE */
+.botao {
+    width: 100%;
+    padding: 12px;
+    margin: 12px;
+    border-radius: 10px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* BOTÃO DELETAR */
+.botao.deletar {
+    background: #e30613;
+    color: white;
+    box-shadow: 0 4px 14px rgba(227,6,19,0.4);
+}
+
+.botao.deletar:hover {
+    background: #b80010;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(227,6,19,0.5);
+}
+
+/* BOTÃO CANCELAR */
+.botao.cancelar {
+    background: #e9e9e9;
+    color: #444;
+}
+
+.botao.cancelar:hover {
+    background: #d6d6d6;
+}
+
+/* RESPONSIVO */
+@media (max-width: 480px) {
+    .card-detalhe {
+        padding: 28px 20px;
+    }
+
+    .card-detalhe h2 {
+        font-size: 22px;
+    }
+}

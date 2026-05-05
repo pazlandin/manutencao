@@ -1,0 +1,26 @@
+/* =============================================
+   ESCADA SEGURA — style.css (base global)
+   Apenas reset e botões/links globais compartilhados
+   ============================================= */
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+    color: #1a1a1a;
+}
+
+/* Botão genérico global (usado em pages sem CSS próprio) */
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

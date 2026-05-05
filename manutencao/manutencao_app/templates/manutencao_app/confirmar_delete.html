@@ -1,0 +1,31 @@
+{% extends 'manutencao_app/base.html' %}
+{% load static %}
+
+{% block conteudo %}
+
+<link rel="stylesheet" href="{% static 'manutencao_app/confirmar_delete.css' %}">
+
+<div class="container-detalhe">
+    <div class="card-detalhe">
+
+        <h2>⚠ Confirmar exclusão</h2>
+
+        <p>Tem certeza que deseja deletar a escada:</p>
+        <strong>{{ escada.codigo }}</strong>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <button class="botao concluir" type="submit">
+                Sim, deletar
+            </button>
+        </form>
+
+        <a href="{% url 'lista_escadas' %}">
+            <button class="botao voltar">Cancelar</button>
+        </a>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends 'manutencao_app/base.html' %}
+{% load static %}
+
+{% block titulo %}Home{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'manutencao_app/home.css' %}">
+{% endblock %}
+
+{% block conteudo %}
+
+<header class="topo">
+    <div class="titulo">
+        <h1>REDFOX</h1>
+        <p>Manutenção</p>
+    </div>
+</header>
+
+<div class="home-container">
+
+    <!-- LADO ESQUERDO -->
+    <div class="home-left">
+
+        <!-- <div class="logo">
+            <span>🛗</span>
+            <div>
+                <h2>ESCADA</h2>
+                <h2>SEGURA</h2>
+            </div>
+        </div> -->
+
+       <section class="hero">
+
+    <div class="hero-texto">
+        <h1>Bem-vindo!</h1>
+        <p>Sistema de Manutenção de Escadas</p>
+        <div class="linha"></div>
+        
+        
+        <div class="textosub"> 
+            <p>Somos o setor de manutenções, responsáveis por assegurar o pleno funcionamento dos equipamentos, estruturas e processos da empresa. Atuamos com manutenções preventivas e corretivas, buscando sempre garantir a qualidade dos serviços, a segurança dos colaboradores e a continuidade das operações, contribuindo diretamente para a excelência e o crescimento da organização.</p>
+        </div>
+    </div>
+
+    <div class="hero-img">
+        <img src="{% static 'manutencao_app/img/equipe.jpeg' %}">
+    </div>
+
+</section>
+        <div class="cards-home">
+
+            <div class="card-home">
+                <h3>📋 Listar Escadas</h3>
+                <p>Visualize todas as escadas cadastradas no sistema.</p>
+                <a href="{% url 'lista_escadas' %}">
+                    <button>ACESSAR →</button>
+                </a>
+            </div>
+
+            <div class="card-home">
+                <h3>🛠️ Nova Escada</h3>
+                <p>Agende sua manutenção.</p>
+                <a href="{% url 'criar_escada' %}">
+                    <button>CADASTRAR →</button>
+                </a>
+            </div>
+
+            <div class="card-home">
+                <h3>⚙ Status</h3>
+                <p>Acompanhe escadas pendentes.</p>
+                <a href="{% url 'status_escadas' %}">
+                    <button>VER STATUS →</button>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="footer-home">
+            <span>🛡</span>
+            <strong>Segurança em primeiro lugar.</strong><br>
+            Manutenções realizadas por profissionais qualificados.
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
